@@ -2,7 +2,7 @@
 
 <img width="600" alt="image" src="https://github.com/Sasaliha/SchoolDb/assets/77535648/a76ff0d9-6ca1-4a9a-b8e3-3ed167e9d3ef">
 
-Okul Projemde yukarıdaki diagramda da paylastıgım üzere 13 table ile çalıştım. Bu projede 3 Procedure ve 2 View Sorgusu oluşturdum. Bu sorguları dilersek daha fazla çeşitlendirebiliriz. Ben örnek olarak birkaç tanesini paylasıyor olacagım. 
+Okul Projemde yukarıdaki diagramda da paylastıgım üzere 13 table ile çalıştım. Bu projede 3 Procedure ve 2 View Sorgusu oluşturdum. Bu sorguları dilersek daha da çeşitlendirebiliriz. Ben örnek olarak birkaç tanesini paylasıyor olacagım. 
 Detaylara ait açıklamalarımı aşağıda bulabilirsiniz: 
 
 
