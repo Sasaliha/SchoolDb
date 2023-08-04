@@ -37,7 +37,7 @@ Detaylara ait açıklamalarımı aşağıda bulabilirsiniz:
 #### PROCEDURE SORGU KODLARI
 
 
->Okul istatistiklerine ait verileri getirmeye yarayan bir Procedure:
+1) Okul istatistiklerine ait verileri getirmeye yarayan bir Procedure:
 
 ```tsql
 Create Procedure SchoolStatisticsProcedure @userId int=1  --Okul istatistikleri ile ilgili güncel verileri çekmek üzere SchoolStatisticsProcedure isimli bir procedure olusturdum. kullanıcı ıd'si 1 olan kullanıcının verilerini burada default olarak getirmektedir. hangi kullanıcının cektiği verileri getirmek istersek buradaki userId parametresini vererek sorgulama yaptırabiliriz.
@@ -48,10 +48,10 @@ insert into SchoolStatistics  values((select count(*) from Teachers), (select co
 select*from SchoolStatistics 
 END
 ```
-Örnek Çalıştırma komutu: Exec SchoolStatisticsProcedure 
+>Örnek Çalıştırma komutu: Exec SchoolStatisticsProcedure 
 
 
->Girilen şube parametresi ile güncel şube öğrencilerine ait verilerin listelenmesini saglayan Procedure:
+2) Girilen şube parametresi ile güncel şube öğrencilerine ait verilerin listelenmesini saglayan Procedure:
 
 ```tsql
 Create Procedure ClassStudentsProcedure @className varchar(10) --şube adını parametre olarak alan bir className olusturuldu
@@ -67,9 +67,9 @@ END
 
 ```
 
-Örnek Çalıştırma komutu: Exec ClassStudentsProcedure '1-A'
+>Örnek Çalıştırma komutu: Exec ClassStudentsProcedure '1-A'
 
->Bir sınıftaki öğrecilerin bir derse ait sınıf ortalamalarını alarak, o derse ait genel sınıf ortalamasını hesaplayıp çıktı alabileceğimiz bir procedure:
+3) Bir sınıftaki öğrecilerin bir derse ait sınıf ortalamalarını alarak, o derse ait genel sınıf ortalamasını hesaplayıp çıktı alabileceğimiz bir procedure:
 
 
 ```tsql
@@ -94,11 +94,11 @@ where c.ClassName=@className and l.name=@lessonName
 END
 ```
 
-Örnek Çalıştırma Komutu: Exec LessonAverageProcedure '1-A', 'Matematik'
+>Örnek Çalıştırma Komutu: Exec LessonAverageProcedure '1-A', 'Matematik'
 
 #### VIEW SORGU KODLARI
 
->Öğrencilerin not ortalamasına göre 70'in üzerinde olanlara BAŞARILI altında olanlara ise BAŞARISIZ seklinde çıktı veren komuttur.
+1) Öğrencilerin not ortalamasına göre 70'in üzerinde olanlara BAŞARILI altında olanlara ise BAŞARISIZ seklinde çıktı veren komuttur.
 
 ```tsql
 CREATE VIEW ExamStatuListsView as 
@@ -119,10 +119,10 @@ left join Teachers as t on t.Id=e.TeacherId
 where not s.Name is null 
 
 ```
-Örnek Çalıştırma Komutu:  SELECT * FROM ExamStatuLists
+>Örnek Çalıştırma Komutu:  SELECT * FROM ExamStatuLists
 
 
->Derse bugun tarihli katılım sağlamamıs öğrencileri sorgulayabilmemizi saglayan komuttur.
+2) Derse bugun tarihli katılım sağlamamıs öğrencileri sorgulayabilmemizi saglayan komuttur.
 
 
 ```tsql
@@ -136,7 +136,7 @@ left join Lessons as l on l.Id=a.LessonId
 left join Classes as c on c.Id=s.ClassId WHERE CAST(a.Date AS DATE)= CAST (GETDATE() AS DATE); --bugun tarihini sart olarak belirttik
 ```
 
-Örnek çalıştırma komutu: SELECT * FROM noneAttandancesView
+>Örnek çalıştırma komutu: SELECT * FROM noneAttandancesView
 
 
 
